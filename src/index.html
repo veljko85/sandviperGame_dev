@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="img/sandviperLogoWhite.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- lootie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"></script>
+  <!-- hammer.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <!-- font awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+  <title>Sandviper game</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="neon.css" />
+</head>
+
+<body>
+  <div id="mainContainer">
+    <!-- loading spinner -->
+    <div id="loadingSpinner">
+      <div id="loadingSpinnerContent">
+
+        <div id="loadingLogo" style="background-image: url(img/Sandviper-horizontal-white.svg)"></div>
+
+        <div id="authSection">
+          <input id="authEmail" placeholder="EMAIL">
+          <!-- <input id="authPassword" placeholder="PASSWORD" type="password"> -->
+          <div id="authErrorDisplay">
+            <h5 id="authErrorDisplayIcon" class="fa">&#xf057;</h5>
+            <h5 id="authErrorDisplayText">Wrong email or password</h5>
+          </div>
+          <div id="authSuccessDisplay">
+            <h5 id="authSuccessDisplayIcon" class="fa">&#xf058;</h5>
+            <h5 id="authSuccessDisplayText">Sign-in link sent to your email!</h5>
+          </div>
+          <button id="authGoogleSignIn">
+            <div id="authGoogleSignInIcon"></div>
+            <div id="authGoogleSignInText">Sign in with Google</div>
+          </button>
+          <!-- <button id="authLogIn">LOG IN</button>
+          <button id="authCreateAcount">REGISTER</button> -->
+          <button id="authEmailLinkSignIn">SIGN IN WITH EMAIL</button>
+
+        </div>
+
+        <div id="loadingSpinnerBorder"></div>
+        <div id="loadingPercentages">0%</div>
+
+        <div id="startGameFromLoadingContainer">
+          <h5 id="userDisplay"></h5>
+          <div id="startGameFromLoading">START GAME</div>
+          <button id="authLogOut">LOG OUT</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- BABYLON CANVAS -->
+    <canvas id="renderCanvas"></canvas>
+    <!-- GAME SCREEN -->
+    <div id="mainScreen">
+
+      <!-- CONTROL -->
+      <div id="contorlsImgContainer">
+        <div id="closeControls">close</div>
+        <div id="controlsImg" style="background-image: url(img/controls2.png)"></div>
+        <div id="controlsImgMob" style="background-image: url(img/controlsMob.png)"></div>
+      </div>
+      <!-- CREDITS -->
+
+      <div id="creditsMainContainer">
+        <div id="closeCredits">close</div>
+
+        <div id="creditsContainer">
+
+          <div id="creditsTitle">CREDITS</div>
+
+          <div class="credit">
+            <div class="creditModel">Cargobox (3D model)</div>
+            <div style="opacity: 50%;">By</div>
+            <div class="creditCreator">TobiasSchmithals</div>
+          </div>
+
+          <div class="credit">
+            <div class="creditModel">Futuristic Sci-fi Small Laser Barrier</div>
+            <div style="opacity: 50%;">By</div>
+            <div class="creditCreator">TobiasSchmithals</div>
+          </div>
+
+          <div class="credit">
+            <div class="creditModel">科技光圈特效Loop</div>
+            <div style="opacity: 50%;">By</div>
+            <div class="creditCreator">Yuki</div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div id="startGameDisplay">
+        <!-- CHOSE TRACK -->
+        <div id="choseTrackContainer">
+          <div id="choseCyberSpaceContainer">
+            <div id="choseCyberSpace"></div>
+          </div>
+          <div id="choseDesertContainer">
+            <div id="choseDesert"></div>
+          </div>
+        </div>
+        <div id="startLogo" style="background-image: url(img/Sandviper-horizontal-white.svg)"></div>
+        <div id="userInGameDisplay">
+          <div id="userInGameDisplayEmail"></div>
+          <!-- <div id="userInGameDisplayAttemptsLeft"></div>
+          <div id="userInGameDisplayAlert">No more attempts left</div> -->
+        </div>
+        <div id="play" class="ring neon-yellow menu-btn">PLAY</div>
+        <div id="choseMale" class="ring neon-yellow menu-btn">
+          MALE
+          <div id="selectedDivMale">&#10003;</div>
+        </div>
+        <div id="choseFemale" class="ring neon-yellow menu-btn">
+          FEMALE
+          <div id="selectedDivFemale"></div>
+        </div>
+        <div id="controlsDisplay" class="ring neon-yellow menu-btn">CONTROLS</div>
+        <div id="creditsDisplay" class="ring neon-yellow menu-btn">CREDITS</div>
+        <div id="exitDisplay" class="ring neon-yellow menu-btn">EXIT</div>
+      </div>
+      <div id="gameOverContainer">
+        <div id="gameOverContainer2" class="ring neon-yellow">
+          <div id="endScoreContainer">
+            <div id="endScoreCoins">
+              <div id="endScorecoinsLogo" style="background-image: url(img/sandviperLogoWhite.png)"></div>
+              <div id="endScorecoinsNumber">x 0</div>
+            </div>
+            <div id="endScoreDistance">Distance: 0m</div>
+            <div id="endScore">Score: 0</div>
+          </div>
+          <div id="yourCodeDisplayContainer">
+            <div id="codeSuccessDisplay">
+              <div id="yourCodeDisplay">Your code is</div>
+              <div id="codeDisplay"></div>
+              <div id="copyCode">Copy Code</div>
+              <div id="reedeemCodeLink"><a id="reedeemCodeLinkAnchore" href="https://sandviper.com/"
+                  target="_blank">Reedeem your code</a></div>
+            </div>
+            <div id="codeUsedDisplay"></div>
+          </div>
+          <div id="restartGameDisplay">Restart Game</div>
+        </div>
+      </div>
+      <div id="pauseScreenContainer">
+        <div id="gamePausedDisplay">Game Paused</div>
+      </div>
+
+    </div>
+    <div id="upperGameScreen">
+      <div id="pauseDisplay">PAUSE</div>
+      <div id="scoreDisplay">Score<br>0</div>
+      <div id="coinsDisplay">
+        <div id="coinsLogo" style="background-image: url(img/sandviperLogoWhite.png)"></div>
+        <div id="coinsNumber">x 0</div>
+      </div>
+    </div>
+    <div id="speedUpContainer">
+      <div id="speedUpDisplay">2x</div>
+    </div>
+    <div id="youWonCodeContainer">
+      <div id="youWonCodeDisplay">You won a code!</div>
+    </div>
+    <div id="muteIcon" style="background-image: url(img/mute.png)"></div>
+    <!-- FPS -->
+    <p id='fps'
+      style="position: absolute; bottom: 1vw; right: 10vw; font-size: 20px; color: rgb(255, 255, 255); z-index: 1000;">
+      1111</p>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

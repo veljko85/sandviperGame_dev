@@ -1,0 +1,674 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #494949;
+}
+
+#adminPageContainer {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+}
+
+#adminLoginContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/img/start_screen2.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+#loadingLogo {
+    width: 300px;
+    height: 70px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -200px;
+    padding-bottom: 100px;
+}
+
+#login-form {
+    /* background-color: rgb(0, 0, 0); */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    /* height: 400px; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#login-form input {
+    width: 250px;
+    height: 40px;
+    margin: 5px 0;
+    border: none;
+    background-color: rgba(24, 24, 24, 0.7);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#login-form input::placeholder {
+    color: #454545;
+    padding-left: 10px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 100px #111111 inset !important;
+}
+
+input:-webkit-autofill:first-line {
+    color: #ffffff;
+}
+
+#authErrorDisplay {
+    color: #ff0000;
+    font-size: 15px;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#login-form button {
+    width: 250px;
+    height: 40px;
+    margin: 5px 0;
+    border: none;
+    background-color: rgb(24, 24, 24);
+    color: #7b7b7b;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-form button:nth-child(4) {
+    background-color: #fd9800;
+    color: #000000;
+    margin-top: 30px;
+}
+
+#login-form button:nth-child(4):hover {
+    color: #ffffff;
+}
+
+/* #authGoogleSignInIcon {
+    width: 20px;
+    height: 20px;
+    background-image: url(img/google-color-icon.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+} */
+
+/* #login-form button:nth-child(5) {
+    background-color: #fd9800;
+    color: #000000;
+} */
+
+#login-form button:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* admin container /////////////////////////////////////////////////////*/
+#adminContainer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* admin top bar */
+#adminTopBar {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#adminTitle {
+    font-size: 20px;
+    font-weight: 600;
+    width: 40%;
+    text-align: left;
+    padding-left: 5%;
+    color: #4e4e4e;
+    /* background-color: rgb(255, 0, 0); */
+}
+
+#adminLogo {
+    width: 10%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+}
+
+#adminEmail {
+    font-size: 15px;
+    font-weight: 600;
+    width: 33%;
+    height: 100%;
+    text-align: right;
+    padding-right: 2%;
+    /* background-color: rgb(248, 4, 4); */
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    color: #4e4e4e;
+}
+
+#adminLogOutButton {
+    width: 7%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 3%;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#adminLogOutButton:hover {
+    background-color: #2c2c2c;
+}
+
+/* admin content container*/
+#adminContentContainer {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    /* height: calc(100vh - 70px); */
+    background-color: #e6e6e6;
+    min-height: calc(100vh - 70px);
+}
+
+/* discount code */
+#discountCodeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1000px;
+    height: auto;
+    /* height: 80px; */
+    margin-top: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    color: #4e4e4e;
+}
+
+.discountCodeHeader {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #dadada;
+    font-weight: 600;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+#discountCodeHeaderTitle {
+    margin-left: 50px;
+}
+
+#discountCodeTitle {
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    width: 500px;
+    /* background-color: rgb(214, 0, 0); */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#discountCodeSeperatedContainers {
+    width: 100%;
+}
+
+.discountCodeSeperatedContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #dadada;
+    font-size: 14px;
+}
+
+.discountCodeHeaderTitle {
+    margin-left: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    width: 500px;
+}
+
+.errorSuccessDisplay {
+    width: 100px;
+    height: 30px;
+    margin-right: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    color: #ff0000;
+    visibility: hidden;
+    font-size: 15px;
+}
+
+.errorSuccessDisplayIcon {
+    margin-right: 5px;
+}
+
+.neededScoreInput {
+    width: 150px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    border: none;
+}
+
+.discountCodeInput {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    border: none;
+}
+
+.discountCodeDeleteContainer {
+    width: 52px;
+    height: 50px;
+    font-size: 20px;
+    color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#addDiscountCodeContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+}
+
+#addDiscountCodeButton {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+}
+
+#addDiscountCodeButton:hover {
+    background-color: #2c2c2c;
+}
+
+#saveDiscountCodeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#saveDiscountCodeButton {
+    width: 150px;
+    height: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveDiscountCodeButton:hover {
+    background-color: #2c2c2c;
+}
+
+/* //////////////////////////////////////////////////////// */
+
+#usersContainer {
+    width: 1000px;
+    height: 500px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    color: #4e4e4e;
+    overflow: hidden;
+}
+
+#usersContainerTopBar {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-left: 40px;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    color: #4e4e4e;
+    border-bottom: 1px solid #dadada;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#usersList {
+    width: 100%;
+    height: 360px;
+    text-align: justify;
+    /* background-color: #ff0000ef; */
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    /* border-bottom: 1px solid #dadada; */
+    color: #4e4e4e;
+    font-size: 12px;
+}
+
+.userTitles {
+    color: #4e4e4e;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #f5f5f5;
+}
+
+.userNumber {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    margin-left: 50px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.userEmail {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin-left: 300px;
+    /* background-color: rgb(255, 0, 0); */
+}
+
+.userDiscountCode {
+    width: 150px;
+    height: 100%;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    /* margin-top: 40px; */
+    margin-bottom: 100px;
+    /* background-color: #0044ffef; */
+}
+
+.paginationButton {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.paginationButton:hover {
+    background-color: #2c2c2c;
+}
+
+#pageInfo {
+    margin: 0 10px;
+}
+
+#downloadCsvBtn {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+    margin-left: 750px;
+    margin-bottom: 30px;
+}
+
+#downloadCsvBtn:hover {
+    background-color: #2c2c2c;
+}
+
+@media screen and (orientation: portrait) and (max-width: 500px) {
+    #adminTitle {
+        font-size: 15px;
+        width: 20%;
+        margin-left: 20px;
+    }
+
+    #adminLogo {
+        width: 100px;
+        height: 25px;
+        margin-right: 10px;
+        display: none;
+    }
+
+    #adminEmail {
+        font-size: 12px;
+        width: 50%;
+        padding-right: 20px;
+    }
+
+    #adminLogOutButton {
+        width: 20%;
+    }
+
+    /* admin content container */
+    #adminContentContainer {
+        min-height: calc(100dvh - 70px);
+    }
+
+    /*/////////////////////// discount code //////////////////////*/
+    #discountCodeContainer {
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    .discountCodeHeader {
+        font-size: 10px;
+    }
+
+    #discountCodeHeaderTitle {
+        margin-left: 20px;
+    }
+
+    /* #discountCodeTitle {
+        margin-left: 50px;
+        font-size: 20px;
+        font-weight: 600;
+        width: 500px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    } */
+
+    .discountCodeSeperatedContainer {
+        font-size: 10px;
+    }
+
+    .discountCodeHeaderTitle {
+        margin-left: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        width: 100px;
+        /* background-color: #fd9800; */
+    }
+
+    .errorSuccessDisplay {
+        width: 20px;
+        margin-right: 2px;
+        visibility: visible;
+        font-size: 8px;
+    }
+
+    .errorSuccessDisplayText {
+        display: none;
+    }
+
+    .errorSuccessDisplayIcon {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+
+    .neededScoreInput {
+        width: 70px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+
+    .discountCodeInput {
+        width: 70px;
+    }
+
+    .discountCodeDeleteContainer {
+        width: 32px;
+        height: 30px;
+    }
+
+    #addDiscountCodeContainer {
+        margin-top: 10px;
+    }
+
+    #addDiscountCodeButton {
+        margin-right: 20px;
+    }
+
+    #saveDiscountCodeContainer {
+        margin-bottom: 10px;
+    }
+
+    /* //////////////////////users container//////////////////// */
+    #usersContainer {
+        width: 90%;
+    }
+
+    .user {
+        font-size: 10px;
+    }
+
+    .userTitles {
+        font-size: 10px;
+    }
+
+    .userNumber {
+        width: 30px;
+        margin-left: 10px;
+    }
+
+    .userEmail {
+        width: 200px;
+        margin-left: 10px;
+    }
+
+    .userDiscountCode {
+        width: 80px;
+        margin-right: 5px;
+    }
+
+    #pagination {
+        margin-bottom: 30px;
+    }
+
+    .paginationButton {
+        width: 70px;
+        font-size: 11px;
+    }
+
+    #pageInfo {
+        margin: 0 10px;
+        font-size: 11px;
+    }
+
+    #downloadCsvBtn {
+        margin-left: 0px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+}

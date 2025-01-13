@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="img/sandviperLogoWhite.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" type="text/css" href="adminStyle.css" />
+</head>
+
+<body>
+    <div id="adminPageContainer">
+
+        <div id="adminLoginContainer">
+            <div id="loadingLogo" style="background-image: url(img/sandviperNameWhiteAdmin.png)"></div>
+
+            <div id="login-form">
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <div id="authErrorDisplay">
+                    <h5 id="authErrorDisplayIcon" class="fa">&#xf057;</h5>
+                    <h5 id="authErrorDisplayText">Wrong email or password</h5>
+                </div>
+                <button id="loginButton">Login</button>
+                <button id="logoutButton">Log out</button>
+            </div>
+        </div>
+
+        <div id="adminContainer">
+            <div id="adminTopBar">
+                <h1 id="adminTitle">Admin</h1>
+                <div id="adminLogo" style="background-image: url(img/sandviperName.png)"></div>
+                <div id="adminEmail">test@test.com</div>
+                <button id="adminLogOutButton">Log out</button>
+            </div>
+            <div id="adminContentContainer">
+
+
+                <div id="discountCodeContainer">
+
+                    <div class="discountCodeHeader">
+                        <h1 id="discountCodeHeaderTitle">Discount codes</h1>
+                    </div>
+
+                    <div id="discountCodeSeperatedContainers">
+
+                        <div class="discountCodeSeperatedContainer">
+                            <h3 class="discountCodeHeaderTitle">Discount code</h3>
+                            <div class="errorSuccessDisplay">
+                                <h5 class="errorSuccessDisplayIcon fa">&#xf057;</h5>
+                                <h5 class="errorSuccessDisplayText">Error</h5>
+                            </div>
+                            <input class="neededScoreInput" type="number" placeholder="Needed score">
+                            <input class="discountCodeInput" type="text" placeholder="Discount code">
+                        </div>
+
+                    </div>
+
+                    <div id="addDiscountCodeContainer">
+                        <button id="addDiscountCodeButton">Add Discount Code</button>
+                    </div>
+
+                    <div id="saveDiscountCodeContainer">
+                        <button id="saveDiscountCodeButton">Save Discount Codes</button>
+                    </div>
+
+                </div>
+
+
+                <div id="usersContainer">
+                    <div id="usersContainerTopBar">
+                        <h4 id="usersTitle">User List</h4>
+                    </div>
+                    <div class="userTitles user">
+                        <h3 class="userNumber">No</h3>
+                        <h3 class="userEmail">Email</h3>
+                        <h3 class="userDiscountCode">Discount code</h3>
+                    </div>
+                    <div id="usersList">
+                        <div class="user">
+                            <h3 class="userNumber">1</h3>
+                            <h3 class="userEmail">test@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">2</h3>
+                            <h3 class="userEmail">test2@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                        <div class="user">
+                            <h3 class="userNumber">3</h3>
+                            <h3 class="userEmail">test3@test.com</h3>
+                            <h3 class="userDiscountCode">false</h3>
+                        </div>
+                    </div>
+                </div>
+                <button id="downloadCsvBtn">Download CSV</button>
+            </div>
+        </div>
+        <script type="module" src="/admin-script.js"></script>
+    </div>
+</body>
+
+</html>
